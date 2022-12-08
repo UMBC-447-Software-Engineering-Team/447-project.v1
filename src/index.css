@@ -31,6 +31,23 @@ body {
   /*set the gradient to be a bit less harsh using opacity in rgba*/
   /*border-style: solid;*/
 }
+
+/*container for left and right side of create page*/
+.main {
+  display:flex;
+  flex-direction: row;
+  min-height: 100%;
+  font-family: 'Roboto', sans-serif;
+  /*set the gradient to be a bit less harsh using opacity in rgba*/
+  /*background-color: rgba(161, 129, 214,.75);*/
+
+  background-color: #fefbef;
+  /*background: linear-gradient(rgba(161, 129, 214,.5),rgba(255, 213, 0,.5), rgba(161, 129, 214,.5));
+  */
+  /*border-style: solid;*/
+}
+
+/*right side of create page*/
 .Right{
   align-self: baseline;
   flex-basis: auto;
@@ -39,7 +56,7 @@ body {
 
 }
 
-/*left flex box*/
+/*left side of create page*/
 .Left{
   align-self: flex-start;
   flex-grow: 1;

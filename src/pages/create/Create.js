@@ -10,12 +10,17 @@ import ReactDOM from 'react-dom/client';
 export default function Create() {
 
     return (
-      <><div className="Left">
+
+      <>
+      <div className="main">
+      <div className="Left">
         <Form />
       </div><div className="Right">
           <PanelDrawing />
 
-        </div></>
+        </div>
+      </div>
+     </>
    
      
     )
