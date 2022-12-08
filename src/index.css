@@ -1,10 +1,10 @@
 body {
+
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: white;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: large;
 }
 
 code {
@@ -18,16 +18,28 @@ code {
 
 body {
   margin: 0;
+  background-color: #fefbef;
 }
 
+/* for the conttainer for all pages*/
 .container {
-  margin: 1rem;
-  text-align: center;
+  margin: 0rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: 'Roboto', sans-serif;
+  /*set the gradient to be a bit less harsh using opacity in rgba*/
+  /*border-style: solid;*/
 }
 
 .nav {
-  background-color: #333;
+  font-size: xx-large;
+  background: #4677C7;
+  /* background-color: #333; */
   color: white;
+  border-color:  black;
+  border-style: hidden hidden solid hidden;
+  border-width: 2px;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -62,4 +74,82 @@ body {
 
 .nav li:hover {
   background-color: #777;
+}
+
+/* home page syling */
+.main-home{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-description{
+  text-align: justify;
+}
+.headText{
+  width: 35%;
+}
+.middleText{
+  width: 35%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.flexrowOne{
+  margin-top: 2.5%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexrowTwo{
+  margin-top: 2%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* border for images  */
+.home-images{
+  border-radius: 5%;
+  border: black solid 2px;
+}
+/* Buttons in home */
+.createbutton{
+  padding: 2% 4%;
+  background-color: rgba(0, 164, 209, .7);
+  border-radius: 5%;
+  border: black solid 1.5px;
+  text-align: center;
+  color: black;
+  transition-duration: 0.5s;
+  text-decoration:none
+}
+
+.createbutton:hover,
+.createbutton:focus-within {
+background:  rgb(1, 108, 137);
+cursor: pointer;
+  color: white;
+}
+
+.createbutton:focus-within a {
+  outline: none;
+}
+
+
+/* contacts Page */
+.contacts{
+ margin-top: 5%;
+ text-align: center;
 }
