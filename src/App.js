@@ -2,7 +2,7 @@
 import Navbar from "./layouts/Navbar";
 // all the page component
 import Home from "./pages/Home.js"
-import Create from "./pages/create/Create"
+import {Create} from "./pages/create/Create"
 import Contact from "./pages/ContactUs"
 // import the routing functionality
 import { Route, Routes } from "react-router-dom"

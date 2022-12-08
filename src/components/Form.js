@@ -1,127 +1,27 @@
-import { useState, useRef } from "react";
-import View from "./PanelDrawing";
+import React, { useState } from 'react';
 
+export default function Form({ onSubmit }) {
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
 
-const Form = () => {
-    const [formValues, setFormValues] = useState({
-      buildingWidth: "",
-      buildingHeight: "",
-      panelWidth: "",
-      panelHeight: "",
-      sBuildingEdge: "",
-      sPanelRow: "",
-      sPanelCol: ""
-    });
-    
-    const inputFileRef = useRef();
+  function handleSubmit(event) {
+    event.preventDefault();
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        console.log(name, value);
+    onSubmit(num1, num2);
+  }
 
-        setFormValues({ ...formValues, [name]: value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formValues);
-        <View data = {formValues} />
-    };
-
-    return (
-    <>
-      <div className="Left">
-        <h1>Input Values</h1>
-        </div>
-
-        <form id="formu" onSubmit={handleSubmit} className="row">
-         
-          <div className="c">
-            <label>Building Width </label>
-            <input
-              type="number"
-              placeholder="Text input"
-              name="buildingWidth"
-              value={formValues?.buildingWidth}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label>Building Height</label>
-            <input
-              type="number"
-              placeholder="Text input"
-              name="buildingHeight"
-              value={formValues.buildingHeight}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label>Panel Width</label>
-            <input
-              type="number"
-              placeholder="Text input"
-              name="panelWidth"
-              value={formValues.panelWidth}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label>Panel Height</label>
-            <input
-              type="number"
-              placeholder="Text input"
-              name="panelHeight"
-              value={formValues.panelHeight}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label>Space from Building Edge</label>
-            <input
-              type="number"
-              placeholder="Text input"
-              name="sBuildingEdge"
-              value={formValues.sBuildingEdge}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label>Panel Row Spacing</label>
-            <input
-              type="number"
-              placeholder="Text input"
-              name="sPanelRow"
-              value={formValues.sPanelRow}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label>Panel Column Spacing</label>
-            <input
-              type="number"
-              placeholder="Text input"
-              name="sPanelCol"
-              value={formValues.sPanelCol}
-              onChange={handleChange}
-            />
-          </div>
-
-          <button type="submit" className="color-primary">
-            Submit
-          </button>
-        </form>
-       
-        <View data={formValues} />
-        
-    </>
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        First number:
+        <input type="number" value={num1} onChange={event => setNum1(event.target.value)} />
+      </label>
+      <label>
+        Second number:
+        <input type="number" value={num2} onChange={event => setNum2(event.target.value)} />
+      </label>
+      <button type="submit">Add Numbers</button>
+    </form>
   );
-};
+}
 
-export default Form;

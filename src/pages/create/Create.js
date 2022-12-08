@@ -1,28 +1,40 @@
 import { useState } from "react";
-
-import Form from "../../components/Form"
+import PrettyForm from "../../components/Form"
 import PanelDrawing from "../../components/PanelDrawing"
 import ReactDOM from 'react-dom/client';
 
 
 
+export function Create() {
+  const [sum, setSum] = useState(0);
 
-export default function Create() {
 
-    return (
+  function handleSubmit(num1, num2) {
+    const total = +num1 + +num2;
+    setSum(total);
+    console.log(`The sum of ${num1} and ${num2} is ${total}.`);
+  }
 
-      <>
+  return (
+    <>
+ <>
       <div className="main">
       <div className="Left">
-        <Form />
+     <PrettyForm onSubmit={handleSubmit} />
       </div><div className="Right">
-          <PanelDrawing />
+    <p>The sum is: {sum}</p>
 
         </div>
       </div>
      </>
-   
-     
-    )
-  }
+       
+        
+        
+    
+    </>
+    
+  
+  );
+}
 
+// AIzaSyBRMZAbu5zpQqLqB8wNz5ntesPcxs0SZkY
