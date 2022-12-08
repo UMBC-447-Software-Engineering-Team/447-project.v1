@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PrettyForm from "../../components/Form"
-import PanelDrawing from "../../components/PanelDrawing"
+import {PanelDrawing} from "../../components/PanelDrawing"
 import ReactDOM from 'react-dom/client';
 
 
@@ -23,9 +23,9 @@ export function Create() {
      <PrettyForm onSubmit={handleSubmit} />
       </div><div className="Right">
     <p>The sum is: {sum}</p>
-
+    
         </div>
-      </div>
+      </div><PanelDrawing/>
      </>
        
         
