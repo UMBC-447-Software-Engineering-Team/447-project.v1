@@ -30,7 +30,7 @@ const Form = () => {
 
     return (
     <>
-      <div className="Right">
+      <div className="Left">
         <h1>Input Values</h1>
         </div>
 

@@ -31,7 +31,22 @@ body {
   /*set the gradient to be a bit less harsh using opacity in rgba*/
   /*border-style: solid;*/
 }
+.Right{
+  align-self: baseline;
+  flex-basis: auto;
+  flex-grow: 20;
+  background: red;
 
+}
+
+/*left flex box*/
+.Left{
+  align-self: flex-start;
+  flex-grow: 1;
+  background: blue;
+  
+
+}
 .nav {
   font-size: xx-large;
   background: #4677C7;
