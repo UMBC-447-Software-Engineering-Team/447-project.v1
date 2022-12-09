@@ -25,6 +25,7 @@ export function Create() {
   const [numPanelsWide, setNumPanelsWide] = useState(0);
   const [numPanelsTall, setNumPanelsTall]= useState(0);
 
+  const [array, setArray] = useState(new Array());
   
 
   function handleSubmit(panelWidth, panelHeight, roofWidth, 
@@ -63,7 +64,39 @@ export function Create() {
     setNumPanelsWide(numPanelsWide)
     setNumPanelsTall(numPanelsTall)
 
+    //  // Create a 2D array with the specified length and width
+    //  let array = Array.from({length: numPanelsWide}, () => Array.from({length: numPanelsTall}, () => []));
+    
+     // Create an empty 2D array
+    
+
+    
+    
+    let newArray = new Array(numPanelsTall);
+    // Row by column aka PanelsTall by Panels Wide
+    for (let i = 0; i < numPanelsTall; i++) {
+      console.log('here')
+      newArray[i] = new Array(numPanelsWide);
+    }
+    console.log(`The NEW array initialization  .`);
+    console.log(newArray)
   
+    //  let array = Array({numPanelsWide}, () => Array.from({numPanelsTall}, () => []));
+
+    // console.log(`The new array after filling.`);
+    // console.log(newArray)
+    // to use outside hook
+    setArray(null);
+    setArray(newArray);
+    // Deallocate the old array
+    newArray = null;
+     // Log the array to the console
+    // console.log(`The new array NULL.`);
+    // console.log(newArray)
+
+    console.log(`The array after filling .`);
+    console.log(array)
+
 
 }
 
@@ -71,23 +104,27 @@ export function Create() {
   //empty array thats filled with total panels possible ie pColumnCount * pRowCount
 
 
-  // var xCoord = 20;
-  // var yCoord = 20;
-  // for (var i = 0; i < numPanelsWide; i++){
-  //     panelsArr[i] = {};
-  //     for (var j = 0; j < numPanelsTall; j++){
-  //         panelsArr[i][j] = {x:xCoord, y:yCoord, status:1}; //status 1 = true, 0 = delete
-  //         yCoord = yCoord + juristictionHeight;
-  //     }
-  //     xCoord = xCoord + juristictionWidth;
-  //     yCoord = 20
-  // }
-  
+
   const canvasRef = useRef(null);
   // Declare an empty 2D array with rows and columns
 
-    
 
+    // Row by column aka PanelsTall by Panels Wide
+    // add items to array
+    let xCoord = edgeSpacings;
+    let yCoord = edgeSpacings;
+
+     for (let i = 0; i < numPanelsTall; i++) {  //for each row 
+      for (let j = 0; j < numPanelsWide; j++) {   //each column
+        array[i][j] = [xCoord , yCoord];
+        xCoord = xCoord + juristictionWidth;
+      }
+      xCoord = edgeSpacings;
+      yCoord = yCoord + juristictionHeight;
+    }
+
+  console.log(`The array after filling outside hook  .`);
+  console.log(array)
 
     // for (let i = 0; i < numPanelsWide; i++){
     //     panelsArr[i] = {};
@@ -118,32 +155,12 @@ export function Create() {
     ctx.fillStyle = "green";  //box inside the outer canvas or grid
     ctx.fillRect(edgeSpacings, edgeSpacings, tempBuildWidth, tempBuildHeight);
  
-    // for (let i = 0; i < numPanelsTall; i++) {
-    //   for (let j = 0; j < numPanelsWide; j++) {
-    //     var tempX = panelsArr[i][j].x;
-    //     var tempY = panelsArr[i][j].y;
-    //     //draw panel               
-    //     ctx.fillStyle = "red";
-    //     ctx.fillRect(tempX, tempY, panelWidths, panelHeights);
-      
-    //   }
-    // }
-          //starting coordinates for the first top right of the box 
-          let xCoord = edgeSpacings;
-          let yCoord = edgeSpacings;
-    const panelsArr = Array.from(Array(numPanelsWide), () => Array(numPanelsTall));
-  // Fill the array with coordinates
-  for (let i = 0; i < numPanelsWide; i++) {
-    for (let j = 0; j < numPanelsTall; j++) {
-      panelsArr[i][j] = [xCoord , yCoord];
-      yCoord = yCoord + juristictionHeight;
-    }
-    yCoord = edgeSpacings;
-    xCoord = xCoord + juristictionWidth;
-  }
+
+    //starting coordinates for the first top right of the box 
+    // draw the array
     for (let i = 0; i < numPanelsTall; i++) {
       for (let j = 0; j < numPanelsWide; j++) {
-        const [tempX,tempY] = panelsArr[i][j];
+        const [tempX,tempY] = array[i][j];
         //draw panel               
         ctx.fillStyle = "red";
         ctx.fillRect(tempX, tempY, panelWidths, panelHeights);
@@ -162,7 +179,8 @@ export function Create() {
       <div className="main">
       <div className="Left">
           <Form onSubmit={handleSubmit} />
-          {/* console.log(`The sum of ${numPanelsWide} and ${numPanelsTall}.`); */}
+          console.log(`The numpanelswide/tall of ${numPanelsWide} and ${numPanelsTall}
+          and ${juristictionWidth} and ${juristictionHeight} .`);
       </div>
       <div className="Right">
       {/* <pre>
