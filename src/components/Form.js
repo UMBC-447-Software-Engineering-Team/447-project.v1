@@ -114,8 +114,8 @@ export default function Form({ onSubmit }) {
 
   return (
     <>
-    <form onSubmit={handleSubmit}style={{ display: "flex", flexDirection: "column"}} >
-    <div >
+    <form onSubmit={handleSubmit} >
+    <div className="col-md-6">
     <label>
     <span className="label-text">Panel Width:</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number"  type="number" value={panelWidth} required 
@@ -140,8 +140,10 @@ export default function Form({ onSubmit }) {
           </div>
           )}
             </label>
-        
-        <label className="label">
+        </div>
+
+        <div className="col-md-6">
+        <label>
         <span className="label-text">Roof Width:</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofWidth} required 
           onChange={event => setRoofWidth(event.target.value)} />
@@ -151,7 +153,10 @@ export default function Form({ onSubmit }) {
           </div>
           )}
         </label>
-        <label className="label">
+        </div>
+       
+        <div className="col-md-6">
+        <label >
         <span className="label-text">Roof Height:</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofHeight} required 
           onChange={event => setRoofHeight(event.target.value)} />
@@ -161,8 +166,10 @@ export default function Form({ onSubmit }) {
           </div>
           )}
         </label>
+        </div>
         
-        <label className="label">
+        <div className="col-md-6">
+        <label >
         <span className="label-text">Row Spacing:</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={rowSpacing} 
           onChange={event => setRowSpacing(event.target.value)} />
@@ -172,8 +179,10 @@ export default function Form({ onSubmit }) {
           </div>
           )}
         </label>
-        
-        <label className="label">
+        </div>
+
+        <div className="col-md-6">
+        <label>
         <span className="label-text">Column Spacing:</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={columnSpacing} 
           onChange={event => setColumnSpacing(event.target.value)} />
@@ -183,8 +192,10 @@ export default function Form({ onSubmit }) {
           </div>
           )}
         </label>
-        
-        <label className="label">
+        </div>
+       
+        <div className="col-md-6">
+        <label >
         <span className="label-text">Edge Spacing:</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={edgeSpacing} onChange={event => setEdgeSpacing(event.target.value)} />
           {inputError6 && (
