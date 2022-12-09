@@ -5,9 +5,8 @@ import React, { useLayoutEffect, useState, useRef } from 'react';
 
 export function Create() {
   // Canvas Dimentions
-  let canvasWidth = 1000;
-  let canvasHeight = 1000;
-
+  let canvasWidth = 5000;  //Max canvas dimentions
+  let canvasHeight = 4500; // Max canvas dimentions
   // Variables in order to access the submitted inputs outside of handleSubmit hook
   const [panelWidths, setPanelWidths] = useState(0);
   const [panelHeights, setPanelHeights] = useState(0);
@@ -28,9 +27,10 @@ export function Create() {
   function handleSubmit(panelWidth, panelHeight, roofWidth, 
     roofHeight, rowSpacing, columnSpacing, edgeSpacing) {
 
-    // copy over the newly changed inputs using + to convert from string to number
-    const roofWidths = +roofWidth;
-    setRoofWidths(roofWidths);
+      // copy over the newly changed inputs using + to convert from string to number
+
+      const roofWidths = +roofWidth;
+      setRoofWidths(roofWidths);
 
     const roofHeights = +roofHeight;
     setRoofHeights(roofHeights);
