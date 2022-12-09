@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Formik, Field } from 'formik';
+
 
 export default function Form({ onSubmit }) {
   
@@ -114,11 +114,11 @@ export default function Form({ onSubmit }) {
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}style={{ display: "flex", flexDirection: "column"}} >
     <div >
     <label>
-          Panel Width:
-          <input type="number" value={panelWidth} required 
+    <span className="label-text">Panel Width:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number"  type="number" value={panelWidth} required 
           onChange={event => setPanelWidth(event.target.value)} 
         />
         {inputError && (
@@ -131,25 +131,15 @@ export default function Form({ onSubmit }) {
 
         <div className="col-md-6">
         <label>
-          Panel Height:
-          <input type="number" value={panelHeight} required 
+        <span className="label-text">Panel Height:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={panelHeight} required 
           onChange={event => setPanelHeight(event.target.value)} />
           {inputError1 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
             {inputError1}
           </div>
           )}
-    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column"}}>
-    <div className="form-control w-full max-w-xs">
-      <label className="label">
-      <span className="label-text">Panel Width:</span>
-            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={panelWidth} onChange={event => setPanelWidth(event.target.value)} />
-          </label>
-      
-        <label className="label">
-          <span className="label-text">Panel Height:</span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={panelHeight} onChange={event => setPanelHeight(event.target.value)} />
-        </label>
+            </label>
         
         <label className="label">
         <span className="label-text">Roof Width:</span>
