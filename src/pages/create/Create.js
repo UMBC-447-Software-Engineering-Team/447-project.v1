@@ -1,5 +1,5 @@
 import Form from "../../components/Form"
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useLayoutEffect, useState, useRef } from 'react';
 
 
 
@@ -7,8 +7,8 @@ import React, { useEffect, useState, useRef } from 'react';
 
 
 export function Create() {
-  let canvasWidth = 500;
-  let canvasHeight = 500;
+  let canvasWidth = 1000;
+  let canvasHeight = 1000;
   // for testing 20,10,600,600,30,10,20
   const [panelWidths, setPanelWidths] = useState(0);
   const [panelHeights, setPanelHeights] = useState(0);
@@ -24,6 +24,7 @@ export function Create() {
 
   const [numPanelsWide, setNumPanelsWide] = useState(0);
   const [numPanelsTall, setNumPanelsTall]= useState(0);
+
   
 
   function handleSubmit(panelWidth, panelHeight, roofWidth, 
@@ -62,7 +63,7 @@ export function Create() {
     setNumPanelsWide(numPanelsWide)
     setNumPanelsTall(numPanelsTall)
 
-
+  
 
 }
 
@@ -83,13 +84,10 @@ export function Create() {
   // }
   
   const canvasRef = useRef(null);
-  // Declare an empty 2D array with 3 rows and 3 columns
+  // Declare an empty 2D array with rows and columns
 
-  const panelsArr = Array.from(Array(numPanelsWide), () => Array(numPanelsTall));
     
-      //starting coordinates for the first top right of the box 
-    let xCoord = edgeSpacings;
-    let yCoord = edgeSpacings;
+
 
     // for (let i = 0; i < numPanelsWide; i++){
     //     panelsArr[i] = {};
@@ -100,17 +98,9 @@ export function Create() {
     //     xCoord = xCoord + juristictionWidth;
     //     yCoord = edgeSpacings
     // }
-  // Fill the array with coordinates
-  for (let i = 0; i < numPanelsWide; i++) {
-    for (let j = 0; j < numPanelsTall; j++) {
-      panelsArr[i][j] = [xCoord , yCoord];
-      yCoord = yCoord + juristictionHeight;
-    }
-    yCoord = edgeSpacings;
-    xCoord = xCoord + juristictionWidth;
-  }
 
-  useEffect( () => {
+
+  useLayoutEffect( () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     // clear the canvas on each submit
@@ -138,6 +128,19 @@ export function Create() {
       
     //   }
     // }
+          //starting coordinates for the first top right of the box 
+          let xCoord = edgeSpacings;
+          let yCoord = edgeSpacings;
+    const panelsArr = Array.from(Array(numPanelsWide), () => Array(numPanelsTall));
+  // Fill the array with coordinates
+  for (let i = 0; i < numPanelsWide; i++) {
+    for (let j = 0; j < numPanelsTall; j++) {
+      panelsArr[i][j] = [xCoord , yCoord];
+      yCoord = yCoord + juristictionHeight;
+    }
+    yCoord = edgeSpacings;
+    xCoord = xCoord + juristictionWidth;
+  }
     for (let i = 0; i < numPanelsTall; i++) {
       for (let j = 0; j < numPanelsWide; j++) {
         const [tempX,tempY] = panelsArr[i][j];
