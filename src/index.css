@@ -27,9 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  font-family: 'Roboto', sans-serif;
-  /*set the gradient to be a bit less harsh using opacity in rgba*/
-  /*border-style: solid;*/
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /*container for left and right side of create page*/
@@ -37,14 +35,8 @@ body {
   display:flex;
   flex-direction: row;
   min-height: 100%;
-  font-family: 'Roboto', sans-serif;
-  /*set the gradient to be a bit less harsh using opacity in rgba*/
-  /*background-color: rgba(161, 129, 214,.75);*/
-
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fefbef;
-  /*background: linear-gradient(rgba(161, 129, 214,.5),rgba(255, 213, 0,.5), rgba(161, 129, 214,.5));
-  */
-  /*border-style: solid;*/
 }
 
 /*right side of create page*/
@@ -63,15 +55,13 @@ canvas {
   display: block;   /* this is IMPORTANT! */
 }
 
-
 /*left side of create page*/
 .Left{
   align-self: flex-start;
   flex-grow: 1;
   background: blue;
-  
-
 }
+
 .nav {
   font-size: xx-large;
   background: #4677C7;
@@ -116,13 +106,14 @@ canvas {
   background-color: #777;
 }
 
-/* home page syling */
+
+/* home page styling */
 .main-home{
   display: flex;
   flex-direction: column;
   min-height: 100%;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .main-description{
@@ -164,7 +155,7 @@ canvas {
   border-radius: 5%;
   border: black solid 2px;
 }
-/* Buttons in home */
+/* buttons in home */
 .createbutton{
   padding: 2% 4%;
   background-color: rgba(0, 164, 209, .7);
@@ -197,6 +188,4 @@ cursor: pointer;
 .testing{
   flex-grow: 1;
   text-align: left;
-  
-
 }

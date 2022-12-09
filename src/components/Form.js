@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export default function Form({ onSubmit }) {
 
+  // declare variables
   const [panelWidth, setPanelWidth] = useState(0);
   const [panelHeight, setPanelHeight] = useState(0);
   const [roofWidth, setRoofWidth] = useState(0);
@@ -18,6 +19,7 @@ export default function Form({ onSubmit }) {
       rowSpacing, columnSpacing, edgeSpacing
     );
   }
+
 // The form and dynamic change in value here
 // add required for form and error handling 
   return (
@@ -78,4 +80,3 @@ export default function Form({ onSubmit }) {
     </>
   );
 }
-
