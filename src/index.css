@@ -58,8 +58,11 @@ body {
 
 /*canvas css*/
 canvas {
+  margin: 10;
   width: 100%;
   height: 100%;
+  flex-wrap: wrap;
+  border: 20px solid black;
   display: block;   /* this is IMPORTANT! */
 }
 
@@ -68,7 +71,6 @@ canvas {
 .Left{
   align-self: flex-start;
   flex-grow: 1;
-  background: blue;
   
 
 }
@@ -199,4 +201,19 @@ cursor: pointer;
   text-align: left;
   
 
+}
+/* Input boxes being cooler */
+input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=number]:focus {
+  border: 3px solid #555;
 }
