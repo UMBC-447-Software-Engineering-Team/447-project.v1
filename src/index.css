@@ -52,7 +52,7 @@ body {
   align-self: baseline;
   flex-basis: auto;
   flex-grow: 20;
-  background: red;
+  align-content: center;
 
 }
 

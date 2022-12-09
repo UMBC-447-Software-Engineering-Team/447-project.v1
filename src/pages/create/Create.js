@@ -1,37 +1,175 @@
-import { useState } from "react";
-import PrettyForm from "../../components/Form"
-import {PanelDrawing} from "../../components/PanelDrawing"
-import ReactDOM from 'react-dom/client';
+import Form from "../../components/Form"
+import React, { useEffect, useState, useRef } from 'react';
+
+
+
 
 
 
 export function Create() {
-  const [sum, setSum] = useState(0);
+  let canvasWidth = 1000;
+  let canvasHeight = 1000;
+  // for testing 20,10,600,600,30,10,20
+  const [panelWidths, setPanelWidths] = useState(0);
+  const [panelHeights, setPanelHeights] = useState(0);
+  const [roofWidths, setRoofWidths] = useState(0);
+  const [roofHeights, setRoofHeights] = useState(0);
+  const [rowSpacings, setRowSpacing] = useState(0);
+  const [columnSpacing, setColumnSpacing] = useState(0);
+  const [edgeSpacings, setEdgeSpacings] = useState(0);
 
 
-  function handleSubmit(num1, num2) {
-    const total = +num1 + +num2;
-    setSum(total);
-    console.log(`The sum of ${num1} and ${num2} is ${total}.`);
+  const [juristictionWidth, setJuristictionWidth] = useState(0);
+  const [juristictionHeight, setJuristictionHeight]= useState(0);
+
+  const [numPanelsWide, setNumPanelsWide] = useState(0);
+  const [numPanelsTall, setNumPanelsTall]= useState(0);
+  
+
+  function handleSubmit(panelWidth, panelHeight, roofWidth, 
+    roofHeight, rowSpacing, columnSpacing, edgeSpacing) {
+    
+    
+    const roofWidths = +roofWidth;
+    setRoofWidths(roofWidths);
+
+    const roofHeights = +roofHeight;
+    setRoofHeights(roofHeights);
+
+    const panelWidths = +panelWidth;
+    setPanelWidths(panelWidths)
+
+    const panelHeights = +panelHeight;
+    setPanelHeights(panelHeights);
+
+    const edgeSpacings = +edgeSpacing;
+    setEdgeSpacings(edgeSpacings);
+
+
+    //Get juristiction
+    const juristictionWidth = +panelWidth + +columnSpacing; //expected = 30
+    const juristictionHeight = +panelHeight + +rowSpacing; //expected = 40
+
+    setJuristictionWidth(juristictionWidth); 
+    setJuristictionHeight(juristictionHeight);
+    // console.log(`The sum of ${panelWidth} and ${columnSpacing} is ${juristictionWidth}.`);
+
+
+    // Calculate the number of panels that will fit on the roof
+    // 600 - 40 = 560 + 10 = 570 / 30
+    const numPanelsWide = Math.floor(((+roofWidth - (+edgeSpacing * 2)) + +columnSpacing) /juristictionWidth);
+    const numPanelsTall = Math.floor(((+roofHeight - (2 * +edgeSpacing)) + +rowSpacing) / juristictionHeight);
+    setNumPanelsWide(numPanelsWide)
+    setNumPanelsTall(numPanelsTall)
+
+
+
+}
+
+
+  //empty array thats filled with total panels possible ie pColumnCount * pRowCount
+
+
+  // var xCoord = 20;
+  // var yCoord = 20;
+  // for (var i = 0; i < numPanelsWide; i++){
+  //     panelsArr[i] = {};
+  //     for (var j = 0; j < numPanelsTall; j++){
+  //         panelsArr[i][j] = {x:xCoord, y:yCoord, status:1}; //status 1 = true, 0 = delete
+  //         yCoord = yCoord + juristictionHeight;
+  //     }
+  //     xCoord = xCoord + juristictionWidth;
+  //     yCoord = 20
+  // }
+  
+  const canvasRef = useRef(null);
+  // Declare an empty 2D array with 3 rows and 3 columns
+  const panelsArr = Array.from(Array(numPanelsWide), () => Array(numPanelsTall));
+    
+      //starting coordinates for the first top right of the box 
+    const xCoord = edgeSpacings;
+    const yCoord = edgeSpacings;
+
+    // for (let i = 0; i < numPanelsWide; i++){
+    //     panelsArr[i] = {};
+    //     for (let j = 0; j < numPanelsTall; j++){
+    //         panelsArr[i][j] = {x:xCoord, y:yCoord, status:1}; //status 1 = true, 0 = delete
+    //         yCoord = yCoord + juristictionHeight;
+    //     }
+    //     xCoord = xCoord + juristictionWidth;
+    //     yCoord = edgeSpacings
+    // }
+  // Fill the array with coordinates
+  for (let i = 0; i < panelsArr.length; i++) {
+    for (let j = 0; j < panelsArr[i].length; j++) {
+      panelsArr[i][j] = [i + xCoord , j];
+    }
+
   }
+
+  useEffect( () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    // clear the canvas on each submit
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    // const canvas = document.getElementById("panelCan");
+    // const ctx = canvas.getContext("2d");
+    
+    //for visulization of buiilding
+    ctx.strokeRect(0,0,roofWidths,roofHeights); 
+
+    //for visulization of usable building space on building 
+    var tempBuildWidth = roofWidths - (edgeSpacings * 2);
+    var tempBuildHeight = roofHeights - (edgeSpacings * 2);
+    
+    ctx.fillStyle = "green";  //box inside the outer canvas or grid
+    ctx.fillRect(edgeSpacings, edgeSpacings, tempBuildWidth, tempBuildHeight);
+ 
+    // for (let i = 0; i < numPanelsTall; i++) {
+    //   for (let j = 0; j < numPanelsWide; j++) {
+    //     var tempX = panelsArr[i][j].x;
+    //     var tempY = panelsArr[i][j].y;
+    //     //draw panel               
+    //     ctx.fillStyle = "red";
+    //     ctx.fillRect(tempX, tempY, panelWidths, panelHeights);
+      
+    //   }
+    // }
+    // for (let i = 0; i < numPanelsTall; i++) {
+    //   for (let j = 0; j < numPanelsWide; j++) {
+    //     const [tempX,tempY] = panelsArr[i][j];
+    //     //draw panel               
+    //     ctx.fillStyle = "red";
+    //     ctx.fillRect(tempX, tempY, panelWidths, panelHeights);
+      
+    //   }
+    // }
+
+  });
+
+ 
 
   return (
     <>
- <>
+
+      
       <div className="main">
       <div className="Left">
-     <PrettyForm onSubmit={handleSubmit} />
+          <Form onSubmit={handleSubmit} />
+          
       </div><div className="Right">
-    <p>The sum is: {sum}</p>
+      <pre>
+        {JSON.stringify(panelsArr, null, 1)}
+      </pre>
+      <canvas ref={canvasRef} width= {canvasWidth} height={canvasHeight} />
+    
     
         </div>
-      </div><PanelDrawing/>
+       
+      </div>
+  
      </>
        
-        
-        
-    
-    </>
     
   
   );
