@@ -124,8 +124,6 @@ export function Create() {
       <div className="main">
       <div className="Left">
           <Form onSubmit={handleSubmit} />
-          console.log(`The numpanelswide/tall of ${numPanelsWide} and ${numPanelsTall}
-          and ${juristictionWidth} and ${juristictionHeight} .`);
       </div>
       <div className="Right">
       <canvas ref={canvasRef} width= {canvasWidth} height={canvasHeight} />

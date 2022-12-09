@@ -24,58 +24,45 @@ export default function Form({ onSubmit }) {
 // add required for form and error handling 
   return (
     <>
-    <form onSubmit={handleSubmit}>
-    <div className="col-md-6">
-    <label>
-          Panel Width:
-          <input type="number" value={panelWidth} onChange={event => setPanelWidth(event.target.value)} />
+    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column"}}>
+    <div className="form-control w-full max-w-xs">
+      <label className="label">
+      <span className="label-text">Panel Width:</span>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={panelWidth} onChange={event => setPanelWidth(event.target.value)} />
+          </label>
+      
+        <label className="label">
+          <span className="label-text">Panel Height:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={panelHeight} onChange={event => setPanelHeight(event.target.value)} />
         </label>
-      </div>
-
-        <div className="col-md-6">
-        <label>
-          Panel Height:
-          <input type="number" value={panelHeight} onChange={event => setPanelHeight(event.target.value)} />
-        </label>
-        </div>
-
-      <div className="col-md-6">
-        <label>
-          Roof Width:
-          <input type="number" value={roofWidth} onChange={event => setRoofWidth(event.target.value)} />
+        
+        <label className="label">
+        <span className="label-text">Roof Width:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofWidth} onChange={event => setRoofWidth(event.target.value)} />
         </label>
 
-      </div>
-
-      <div className="col-md-6">
-        <label>
-          Roof Height:
-          <input type="number" value={roofHeight} onChange={event => setRoofHeight(event.target.value)} />
+        <label className="label">
+        <span className="label-text">Roof Height:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofHeight} onChange={event => setRoofHeight(event.target.value)} />
         </label>
-        </div>
-
-        <div className="col-md-6">
-        <label>
-        Row Spacing:
-          <input type="number" value={rowSpacing} onChange={event => setRowSpacing(event.target.value)} />
+        
+        <label className="label">
+        <span className="label-text">Row Spacing:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={rowSpacing} onChange={event => setRowSpacing(event.target.value)} />
         </label>
-        </div>
-
-        <div className="col-md-6">
-        <label>
-        Column Spacing:
-          <input type="number" value={columnSpacing} onChange={event => setColumnSpacing(event.target.value)} />
+        
+        <label className="label">
+        <span className="label-text">Column Spacing:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={columnSpacing} onChange={event => setColumnSpacing(event.target.value)} />
+        </label>
+        
+        <label className="label">
+        <span className="label-text">Edge Spacing:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={edgeSpacing} onChange={event => setEdgeSpacing(event.target.value)} />
         </label>
         </div>
 
-        <div className="col-md-6">
-        <label>
-        Edge Spacing:
-          <input type="number" value={edgeSpacing} onChange={event => setEdgeSpacing(event.target.value)} />
-        </label>
-        </div>
-
-      <button type="submit">Submit</button>
+      <button className="btn btn-active" type="submit">Submit</button>
     </form>
     </>
   );
