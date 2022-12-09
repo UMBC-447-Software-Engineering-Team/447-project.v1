@@ -1,3 +1,5 @@
+// main landing page
+
 export default function Home() {
     return(
         //main 
@@ -29,8 +31,5 @@ export default function Home() {
                 <img className="home-images" src={require('../media/solar4.jpg')} alt="" height="30%" width="30%"/>
             </div>
             </div>
-        
-        
-
-)
-     }
+    )
+}

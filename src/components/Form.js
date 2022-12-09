@@ -108,6 +108,7 @@ export default function Form({ onSubmit }) {
       rowSpacing, columnSpacing, edgeSpacing
     );
   }
+
 // The form and dynamic change in value here
 // add required for form and error handling 
 
@@ -210,4 +211,3 @@ export default function Form({ onSubmit }) {
     
     </>);
 }
-
