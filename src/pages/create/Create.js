@@ -7,8 +7,8 @@ import React, { useEffect, useState, useRef } from 'react';
 
 
 export function Create() {
-  let canvasWidth = 1000;
-  let canvasHeight = 1000;
+  let canvasWidth = 500;
+  let canvasHeight = 500;
   // for testing 20,10,600,600,30,10,20
   const [panelWidths, setPanelWidths] = useState(0);
   const [panelHeights, setPanelHeights] = useState(0);
@@ -47,8 +47,8 @@ export function Create() {
 
 
     //Get juristiction
-    const juristictionWidth = +panelWidth + +columnSpacing; //expected = 30
-    const juristictionHeight = +panelHeight + +rowSpacing; //expected = 40
+    const juristictionWidth =  Math.floor(+panelWidth + +columnSpacing); //expected = 30
+    const juristictionHeight =  Math.floor(+panelHeight + +rowSpacing); //expected = 40
 
     setJuristictionWidth(juristictionWidth); 
     setJuristictionHeight(juristictionHeight);
@@ -84,11 +84,12 @@ export function Create() {
   
   const canvasRef = useRef(null);
   // Declare an empty 2D array with 3 rows and 3 columns
+
   const panelsArr = Array.from(Array(numPanelsWide), () => Array(numPanelsTall));
     
       //starting coordinates for the first top right of the box 
-    const xCoord = edgeSpacings;
-    const yCoord = edgeSpacings;
+    let xCoord = edgeSpacings;
+    let yCoord = edgeSpacings;
 
     // for (let i = 0; i < numPanelsWide; i++){
     //     panelsArr[i] = {};
@@ -100,11 +101,13 @@ export function Create() {
     //     yCoord = edgeSpacings
     // }
   // Fill the array with coordinates
-  for (let i = 0; i < panelsArr.length; i++) {
-    for (let j = 0; j < panelsArr[i].length; j++) {
-      panelsArr[i][j] = [i + xCoord , j];
+  for (let i = 0; i < numPanelsWide; i++) {
+    for (let j = 0; j < numPanelsTall; j++) {
+      panelsArr[i][j] = [xCoord , yCoord];
+      yCoord = yCoord + juristictionHeight;
     }
-
+    yCoord = edgeSpacings;
+    xCoord = xCoord + juristictionWidth;
   }
 
   useEffect( () => {
@@ -119,8 +122,8 @@ export function Create() {
     ctx.strokeRect(0,0,roofWidths,roofHeights); 
 
     //for visulization of usable building space on building 
-    var tempBuildWidth = roofWidths - (edgeSpacings * 2);
-    var tempBuildHeight = roofHeights - (edgeSpacings * 2);
+    var tempBuildWidth =  Math.floor(roofWidths - (edgeSpacings * 2));
+    var tempBuildHeight =  Math.floor(roofHeights - (edgeSpacings * 2));
     
     ctx.fillStyle = "green";  //box inside the outer canvas or grid
     ctx.fillRect(edgeSpacings, edgeSpacings, tempBuildWidth, tempBuildHeight);
@@ -135,15 +138,15 @@ export function Create() {
       
     //   }
     // }
-    // for (let i = 0; i < numPanelsTall; i++) {
-    //   for (let j = 0; j < numPanelsWide; j++) {
-    //     const [tempX,tempY] = panelsArr[i][j];
-    //     //draw panel               
-    //     ctx.fillStyle = "red";
-    //     ctx.fillRect(tempX, tempY, panelWidths, panelHeights);
+    for (let i = 0; i < numPanelsTall; i++) {
+      for (let j = 0; j < numPanelsWide; j++) {
+        const [tempX,tempY] = panelsArr[i][j];
+        //draw panel               
+        ctx.fillStyle = "red";
+        ctx.fillRect(tempX, tempY, panelWidths, panelHeights);
       
-    //   }
-    // }
+      }
+    }
 
   });
 
@@ -156,11 +159,12 @@ export function Create() {
       <div className="main">
       <div className="Left">
           <Form onSubmit={handleSubmit} />
-          
-      </div><div className="Right">
-      <pre>
+          {/* console.log(`The sum of ${numPanelsWide} and ${numPanelsTall}.`); */}
+      </div>
+      <div className="Right">
+      {/* <pre>
         {JSON.stringify(panelsArr, null, 1)}
-      </pre>
+      </pre> */}
       <canvas ref={canvasRef} width= {canvasWidth} height={canvasHeight} />
     
     
