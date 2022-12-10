@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        EZWatts
+        EzWatts
       </Link>
       <ul>
         <CustomLink to="create/Create">Create</CustomLink>

@@ -30,7 +30,7 @@ export default function Contact() {
     <p>Marc</p>
     <p>Tanner</p>
     <p>Zoe</p>
-    <button id="cookie" onClick={generateFortune}>Open Fortune Cookie</button>
+    <button id="cookie" onClick={generateFortune}>Click me for a fortune!</button>
     {fortune && <p>{fortune}</p>}
     </div>
   )
