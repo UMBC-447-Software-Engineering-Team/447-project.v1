@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 html{
-  background-color: #af921d;
+  background-color: #fefbef !important;
 }
 body {
 
@@ -15,6 +15,15 @@ body {
 
 }
 
+#cookie{
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: none;
+  background-image: url("cookie.png");
+  background-repeat: no-repeat;
+  padding: 0;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -58,7 +67,8 @@ canvas {
   margin: 10%;
   width: 100%;
   height: 100%;
-  border: 20px solid black;
+  align-content: center;
+  border: 100% solid black;
   display: block;   /* this is IMPORTANT! */
 }
 

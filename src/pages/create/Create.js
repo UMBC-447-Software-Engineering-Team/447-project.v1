@@ -5,7 +5,7 @@ import React, { useLayoutEffect, useState, useRef } from 'react';
 
 export function Create() {
   // Canvas Dimentions
-  let canvasWidth = 1000;  //Max canvas dimentions
+  let canvasWidth = 1000; //Max canvas dimentions
   let canvasHeight = 1000; // Max canvas dimentions
   // Variables in order to access the submitted inputs outside of handleSubmit hook
   const [panelWidths, setPanelWidths] = useState(0);
@@ -98,13 +98,15 @@ export function Create() {
     // clear the canvas on each submit
     ctx.clearRect(0, 0, canvas.width, canvas.height)
  
-    // Draw a box around the whole roof for visulization
+    // Draw a box around the whole roof for visulization and fill it will color
     ctx.strokeRect(0,0,roofWidths,roofHeights); 
+    ctx.fillStyle = "#dfe8f1";
+    ctx.fillRect(0,0,roofWidths,roofHeights)
 
-    // Draw green square around USABLE building space 
+    // Draw light blue square around USABLE building space 
     var tempBuildWidth =  Math.floor(roofWidths - (edgeSpacings * 2));
     var tempBuildHeight =  Math.floor(roofHeights - (edgeSpacings * 2));
-    ctx.fillStyle = "green";  //box inside the outer canvas or grid
+    ctx.fillStyle = "#dfe8f1";  //box inside the outer canvas or grid
     ctx.fillRect(edgeSpacings, edgeSpacings, tempBuildWidth, tempBuildHeight);
   
     // draw the array
@@ -112,7 +114,7 @@ export function Create() {
       for (let j = 0; j < numPanelsWide; j++) {
         const [tempX,tempY] = array[i][j];
         //draw panel               
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "#22277A ";
         ctx.fillRect(tempX, tempY, panelWidths, panelHeights);      
       }
     }
