@@ -36,52 +36,52 @@ export default function Form({ onSubmit }) {
     setInputError6(false);
 
     // Validate the input
-    if (panelWidth <= 0 ) {
+    if (+panelWidth <= 0 ) {
       // Input is empty, show an error message
       setInputError('Enter a value greater than 1');
       value = true;
     }
-    if (panelHeight <= 0 ) {
+    if (+panelHeight <= 0 ) {
       setInputError1('Enter a value greater than 1');
       value = true;
     }
    
-    if (roofWidth <= 0){
+    if (+roofWidth <= 0){
       setInputError2('Enter a value greater than 1');
       value = true;
-    }if (roofWidth <= panelWidth){
+    }if (+roofWidth <= +panelWidth){
         setInputError2('Roof width cannot be less than panel width');
         value = true;
-    }if (roofWidth <= panelHeight){
+    }if (+roofWidth <= +panelHeight){
         setInputError2('Roof width cannot be less than panel length');
         value = true;
     }
 
-    if (roofHeight <= 0){
+    if (+roofHeight <= 0){
       setInputError3('Enter a value greater than 1');
       value = true;
-    }if (roofHeight <= panelWidth){
+    }if (+roofHeight <= +panelWidth){
         setInputError3('Roof height cannot be less than panel width');
         value = true;
-    }if (roofHeight <= panelHeight){
+    }if (+roofHeight <= +panelHeight){
         setInputError3('Roof height cannot be less than panel length');
         value = true;
     }
-    if (rowSpacing < 0){
+    if (+rowSpacing < 0){
       setInputError3('Enter a value greater than 0');
       value = true;
-    } if (rowSpacing >= roofHeight){
+    } if (+rowSpacing >= +roofHeight){
       setInputError3('Row spacing cannot be greater than roof height');
       value = true;
     }
-    if (columnSpacing < 0){
+    if (+columnSpacing < 0){
       setInputError3('Enter a value greater than 0');
       value = true;
-    } if (columnSpacing >= roofWidth){
+    } if (+columnSpacing >= +roofWidth){
       setInputError3('Column spacing cannot be greater than roof width');
       value = true;
     }
-    if (columnSpacing < 0){
+    if (+columnSpacing < 0){
       setInputError3('Enter a value greater than 0');
       value = true;
     } 

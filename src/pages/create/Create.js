@@ -80,14 +80,18 @@ export function Create() {
 
   // add coordinanted for each array
   // first coordinant starts at x and y = edgeSpacing from the upper left
-  let xCoord = edgeSpacings;
-  let yCoord = edgeSpacings;
+  const usableWidth = Math.floor(roofWidths - edgeSpacings*2);
+  const usableHeight = Math.floor(roofHeights - edgeSpacings*2);
+  const columnSpace = (juristictionWidth - panelWidths);
+  const rowSpace = (juristictionHeight - panelHeights);
+  let xCoord = edgeSpacings + ((usableWidth + columnSpace) / juristictionWidth - numPanelsWide) * juristictionWidth/2;
+  let yCoord = edgeSpacings + ((usableHeight + rowSpace) / juristictionHeight - numPanelsTall) * juristictionHeight/2;
   for (let i = 0; i < numPanelsTall; i++) {  //for each row 
     for (let j = 0; j < numPanelsWide; j++) {   //each column
       array[i][j] = [xCoord , yCoord];
       xCoord = xCoord + juristictionWidth;
     }
-    xCoord = edgeSpacings;
+    xCoord = edgeSpacings + ((Math.floor(roofWidths - edgeSpacings*2 + (juristictionWidth - panelWidths)) / juristictionWidth - numPanelsWide) * juristictionWidth/2);
     yCoord = yCoord + juristictionHeight;
   }
 
@@ -101,20 +105,20 @@ export function Create() {
     // Draw a box around the whole roof for visulization and fill it will color
     ctx.strokeRect(0,0,roofWidths,roofHeights); 
     ctx.fillStyle = "#dfe8f1";
-    ctx.fillRect(0,0,roofWidths,roofHeights)
+    ctx.fillRect(0,0,roofWidths+1,roofHeights+1)
 
     // Draw light blue square around USABLE building space 
-    var tempBuildWidth =  Math.floor(roofWidths - (edgeSpacings * 2));
+    /*var tempBuildWidth =  Math.floor(roofWidths - (edgeSpacings * 2));
     var tempBuildHeight =  Math.floor(roofHeights - (edgeSpacings * 2));
     ctx.fillStyle = "#dfe8f1";  //box inside the outer canvas or grid
-    ctx.fillRect(edgeSpacings, edgeSpacings, tempBuildWidth, tempBuildHeight);
+    ctx.fillRect(edgeSpacings, edgeSpacings, tempBuildWidth, tempBuildHeight);*/
   
     // draw the array
     for (let i = 0; i < numPanelsTall; i++) {
       for (let j = 0; j < numPanelsWide; j++) {
         const [tempX,tempY] = array[i][j];
         //draw panel               
-        ctx.fillStyle = "#22277A ";
+        ctx.fillStyle = "#22277A";
         ctx.fillRect(tempX, tempY, panelWidths, panelHeights);      
       }
     }
