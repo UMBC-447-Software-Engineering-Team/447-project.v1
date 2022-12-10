@@ -10,6 +10,9 @@ export default function Form({ onSubmit }) {
   const [rowSpacing, setRowSpacing] = useState(0);
   const [columnSpacing, setColumnSpacing] = useState(0);
   const [edgeSpacing, setEdgeSpacing] = useState(0);
+  const [watts, setWattage] = useState(0);
+  const [avgRads, setAvgRads] = useState(0);
+  const [costPerKWH, setcostPerKWH] = useState(0);
 
   // for input validation
   const [inputError, setInputError] = useState(false);
@@ -19,6 +22,9 @@ export default function Form({ onSubmit }) {
   const [inputError4, setInputError4] = useState(false);
   const [inputError5, setInputError5] = useState(false);
   const [inputError6, setInputError6] = useState(false);
+  const [inputError7, setInputError7] = useState(false);
+  const [inputError8, setInputError8] = useState(false);
+  const [inputError9, setInputError9] = useState(false);
 
 
 
@@ -34,26 +40,29 @@ export default function Form({ onSubmit }) {
     setInputError4(false);
     setInputError5(false);
     setInputError6(false);
+    setInputError7(false);
+    setInputError8(false);
+    setInputError9(false);
 
     // Validate the input
     if (+panelWidth <= 0 ) {
       // Input is empty, show an error message
-      setInputError('Enter a value greater than 1');
+      setInputError('Enter a value greater than 0');
       value = true;
     }
     if (+panelHeight <= 0 ) {
-      setInputError1('Enter a value greater than 1');
+      setInputError1('Enter a value greater than 0');
       value = true;
     }
    
     if (+roofWidth <= 0){
-      setInputError2('Enter a value greater than 1');
+      setInputError2('Enter a value greater than 0');
       value = true;
     }if (+roofWidth <= +panelWidth){
         setInputError2('Roof width cannot be less than panel width');
         value = true;
     }if (+roofWidth <= +panelHeight){
-        setInputError2('Roof width cannot be less than panel length');
+        setInputError2('Roof width cannot be less than panel height');
         value = true;
     }
 
@@ -64,18 +73,18 @@ export default function Form({ onSubmit }) {
         setInputError3('Roof height cannot be less than panel width');
         value = true;
     }if (+roofHeight <= +panelHeight){
-        setInputError3('Roof height cannot be less than panel length');
+        setInputError3('Roof height cannot be less than panel height');
         value = true;
     }
     if (+rowSpacing < 0){
-      setInputError3('Enter a value greater than 0');
+      setInputError3('Enter a value greater or equal to 0');
       value = true;
     } if (+rowSpacing >= +roofHeight){
       setInputError3('Row spacing cannot be greater than roof height');
       value = true;
     }
     if (+columnSpacing < 0){
-      setInputError3('Enter a value greater than 0');
+      setInputError3('Enter a value greater than or equal 0');
       value = true;
     } if (+columnSpacing >= +roofWidth){
       setInputError3('Column spacing cannot be greater than roof width');
@@ -85,6 +94,18 @@ export default function Form({ onSubmit }) {
       setInputError3('Enter a value greater than 0');
       value = true;
     } 
+    if(+watts < 0){
+      setInputError7('Enter a value greater than 0');
+      value = true;
+    }
+    if(+avgRads < 0){
+      setInputError8('Enter a value greater than 0');
+      value = true;
+    }
+    if(+costPerKWH < 0){
+      setInputError9('Enter a value greater than 0');
+      value = true;
+    }
 
 
 
@@ -102,10 +123,13 @@ export default function Form({ onSubmit }) {
     setInputError4(false);
     setInputError5(false);
     setInputError6(false);
+    setInputError7(false);
+    setInputError8(false);
+    setInputError9(false);
 
     // return the updated values to Create
     onSubmit(panelWidth, panelHeight, roofWidth, roofHeight, 
-      rowSpacing, columnSpacing, edgeSpacing
+      rowSpacing, columnSpacing, edgeSpacing, watts, avgRads, costPerKWH
     );
   }
 
@@ -201,6 +225,42 @@ export default function Form({ onSubmit }) {
           {inputError6 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
             {inputError6}
+          </div>
+          )}
+        </label>
+        </div>
+
+        <div className="col-md-6">
+        <label >
+        <span className="label-text">Panel Wattage:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={watts} onChange={event => setWattage(event.target.value)} />
+          {inputError7 && (
+          <div style={{ color: 'red', fontSize: '0.8em' }}>
+            {inputError7}
+          </div>
+          )}
+        </label>
+        </div>
+
+        <div className="col-md-6">
+        <label >
+        <span className="label-text">Average Yearly Radiance:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={avgRads} onChange={event => setAvgRads(event.target.value)} />
+          {inputError8 && (
+          <div style={{ color: 'red', fontSize: '0.8em' }}>
+            {inputError8}
+          </div>
+          )}
+        </label>
+        </div>
+
+        <div className="col-md-6">
+        <label >
+        <span className="label-text">Cost Per KWH:</span>
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={costPerKWH} onChange={event => setcostPerKWH(event.target.value)} />
+          {inputError9 && (
+          <div style={{ color: 'red', fontSize: '0.8em' }}>
+            {inputError9}
           </div>
           )}
         </label>

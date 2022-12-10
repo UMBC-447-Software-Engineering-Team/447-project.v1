@@ -13,6 +13,9 @@ export function Create() {
   const [roofWidths, setRoofWidths] = useState(0);
   const [roofHeights, setRoofHeights] = useState(0);
   const [edgeSpacings, setEdgeSpacings] = useState(0);
+  const [watts, setWattages] = useState(0);
+  const [avgRads, setAvgRads] = useState(0);
+  const [costPerKWHs, setCostPerKWHs] = useState(0);
 
   const [juristictionWidth, setJuristictionWidth] = useState(0);
   const [juristictionHeight, setJuristictionHeight]= useState(0);
@@ -24,11 +27,17 @@ export function Create() {
   const [array, setArray] = useState(new Array());
   
   // Where the magic of hitting the submit button on the Form happens
-  function handleSubmit(panelWidth, panelHeight, roofWidth, 
-    roofHeight, rowSpacing, columnSpacing, edgeSpacing) {
+  function handleSubmit(panelWidth, panelHeight, roofWidth,
+    roofHeight, rowSpacing, columnSpacing, edgeSpacing, watt, avgRad, costPerKWH) {
 
       // copy over the newly changed inputs using + to convert from string to number
-
+      panelWidth *= 25;
+      panelHeight *= 25;
+      roofWidth *= 25;
+      roofHeight *= 25;
+      rowSpacing *= 25;
+      columnSpacing *= 25;
+      edgeSpacing *= 25;
       const roofWidths = +roofWidth;
       setRoofWidths(roofWidths);
 
@@ -43,6 +52,15 @@ export function Create() {
 
     const edgeSpacings = +edgeSpacing;
     setEdgeSpacings(edgeSpacings);
+
+    const watts = +watt;
+    setWattages(watts);
+
+    const avgRads = +avgRad;
+    setAvgRads(avgRads);
+
+    const costPerKWHs = +costPerKWH;
+    setCostPerKWHs(costPerKWHs);
 
     //Get juristiction which is the space around a panel width and hight wise
     const juristictionWidth =  Math.floor(+panelWidth + +columnSpacing); 
@@ -73,6 +91,17 @@ export function Create() {
     setArray(newArray);
     // Deallocate the old array
     newArray = null;
+     //Need to add in a Watts and Average Rads field on front end (Dropdown menu for different states?)
+    //const watts = 450, avgRads = 1814.05; // Hardcoded for now
+    const totalPanels = numPanelsTall * numPanelsWide;
+    const panelArea = panelHeights * panelWidths;
+    const totalPanelArea = totalPanels * panelArea;
+    const solarYield = (watts/1000) / panelArea; //in KWH
+    const energy = avgRads * solarYield * totalPanelArea * .75; //.75 Accounts for all inhibiting variables
+    console.log("You will generate approximately " + energy.toFixed(0) + " KWH of energy every year with this configuration.");
+     //Need to add in a Cost / KWH field on front end (Dropdown menu for different states?)
+    //const costPerKWH = .1392;
+    console.log("You will save approximately $" + (energy * costPerKWH).toFixed(2) + " every year with this configuration.");
   }
 
   // for the canvas
@@ -94,6 +123,9 @@ export function Create() {
     xCoord = edgeSpacings + ((Math.floor(roofWidths - edgeSpacings*2 + (juristictionWidth - panelWidths)) / juristictionWidth - numPanelsWide) * juristictionWidth/2);
     yCoord = yCoord + juristictionHeight;
   }
+
+  // Solar Panel Calculations
+  
 
   useLayoutEffect( () => {
     //refrence current canvas
