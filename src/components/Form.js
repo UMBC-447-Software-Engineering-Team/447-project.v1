@@ -77,21 +77,21 @@ export default function Form({ onSubmit }) {
         value = true;
     }
     if (+rowSpacing < 0){
-      setInputError3('Enter a value greater or equal to 0');
+      setInputError4('Enter a value greater or equal to 0');
       value = true;
     } if (+rowSpacing >= +roofHeight){
-      setInputError3('Row spacing cannot be greater than roof height');
+      setInputError4('Row spacing cannot be greater than roof height');
       value = true;
     }
     if (+columnSpacing < 0){
-      setInputError3('Enter a value greater than or equal 0');
+      setInputError5('Enter a value greater than or equal 0');
       value = true;
     } if (+columnSpacing >= +roofWidth){
-      setInputError3('Column spacing cannot be greater than roof width');
+      setInputError5('Column spacing cannot be greater than roof width');
       value = true;
     }
     if (+columnSpacing < 0){
-      setInputError3('Enter a value greater than 0');
+      setInputError6('Enter a value greater than 0');
       value = true;
     } 
     if(+watts < 0){
