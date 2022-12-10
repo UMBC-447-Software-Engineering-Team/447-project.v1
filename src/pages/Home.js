@@ -8,7 +8,7 @@ export default function Home() {
             <div className="flexrowOne">
                 <img className="home-images" src={require('../media/solar1.jpg')} alt="" height="30%" width="30%"/>
                 <div className="headText">
-                    <h1>Welcome to EZWatts!</h1>
+                    <h1 className="headTextHeading">Welcome to EZWatts!</h1>
                         <a className="createbutton" href="./create/Create">Click to Begin</a>
                 </div>
                 <img className="home-images" src={require('../media/solar2.jpg')} alt="" height="30%" width="30%"/>
