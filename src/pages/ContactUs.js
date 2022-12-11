@@ -11,11 +11,17 @@ export default function Contact() {
     "Life is an adventure",
     "Love is a gift",
     "You will be attacked next Wednesday at 3:15 P.M. by six samurai sword wielding purple fish glued to Harley-Davidson motorcycles.",
-    "Excellent time to become a missing person."
+    "Excellent time to become a missing person.",
+    "Chess tonight.",
+    "Your boss is a few sandwiches short of a picnic.",
+    "Don’t plan any hasty moves. You’ll be evicted soon anyway.",
+    "Don’t feed the bats tonight.",
+    "If you think last Tuesday was a drag, wait till you see what happens tomorrow!",
+    "Cheese",
+    "Future looks spotty. You will spill soup in late evening."
   ];
       
   const [Fortune, setFortune] = useState(null);
-  var fortuneText;
   function generateFortune() {
     const index = Math.floor(Math.random() * Fortunes.length);
     setFortune(Fortunes[index]);
