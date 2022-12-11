@@ -140,10 +140,10 @@ export default function Form({ onSubmit }) {
   return (
     <>
    
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit}  >
     <p id="instructions">Enter all relevant building and panel information below.</p>
 
-    <div className="col-md-6">
+    <div>
       <label>
         <span className="label-text">Roof Width (m): </span>
           <div>
@@ -158,7 +158,7 @@ export default function Form({ onSubmit }) {
       </label>
     </div>
     
-    <div className="col-md-6">
+    <div >
       <label >
         <span className="label-text">Roof Height (m): </span>
           <div>
@@ -173,7 +173,7 @@ export default function Form({ onSubmit }) {
       </label>
     </div>
     
-    <div className="col-md-6">
+    <div >
       <label>
         <span className="label-text">Panel Width (m): </span>
           <div>
@@ -189,7 +189,7 @@ export default function Form({ onSubmit }) {
       </label>
     </div>
 
-    <div className="col-md-6">
+    <div >
       <label>
         <span className="label-text">Panel Height (m): </span>
           <div>
@@ -204,7 +204,7 @@ export default function Form({ onSubmit }) {
       </label>
     </div>
     
-    <div className="col-md-6">
+    <div >
       <label >
         <span className="label-text">Row Spacing (m): </span>
           <div>
@@ -219,7 +219,7 @@ export default function Form({ onSubmit }) {
       </label>
     </div>
 
-    <div className="col-md-6">
+    <div >
       <label>
         <span className="label-text">Column Spacing (m): </span>
           <div>
@@ -234,7 +234,7 @@ export default function Form({ onSubmit }) {
       </label>
     </div>
     
-    <div className="col-md-6">
+    <div>
       <label >
         <span className="label-text">Edge Spacing (m): </span>
           <div>
@@ -266,7 +266,7 @@ export default function Form({ onSubmit }) {
 
     <div className="col-md-6">
       <label >
-        <span className="label-text">Avg Yearly Radiance (kWh/m^2): </span>
+        <span className="label-text">Avg Yearly Radiance (<sup>kWh</sup>&frasl;<sub>m^2</sub>): </span>
           <div>
             <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={avgRads} 
                   onChange={event => setAvgRads(event.target.value)} />

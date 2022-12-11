@@ -76,10 +76,12 @@ form{
   padding: 0 1rem;
   margin:1%
 }
+
 /*left side of create page*/
 .Left{
   align-self: flex-start;
   flex-grow: 1;
+  
 }
 
 .nav {
