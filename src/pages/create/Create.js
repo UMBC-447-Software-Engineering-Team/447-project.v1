@@ -64,7 +64,7 @@ export function Create() {
     const costPerKWHs = +costPerKWH;
     setCostPerKWHs(costPerKWHs);
 
-    //Get juristiction which is the space around a panel width and hight wise
+    //Get juristiction which is the space around a panel width and height wise
     const juristictionWidth =  Math.floor(+panelWidth + +columnSpacing); 
     const juristictionHeight =  Math.floor(+panelHeight + +rowSpacing);
       
@@ -96,14 +96,12 @@ export function Create() {
    
   }
     //Need to add in a Watts and Average Rads field on front end (Dropdown menu for different states?)
-    //const watts = 450, avgRads = 1814.05; // Hardcoded for now
     const totalPanels = numPanelsTall * numPanelsWide;
     const panelArea = panelHeights * panelWidths;
     const totalPanelArea = totalPanels * panelArea;
     const solarYield = (watts/1000) / panelArea; //in KWH
     const energy = avgRads * solarYield * totalPanelArea * .75; //.75 Accounts for all inhibiting variables
     //Need to add in a Cost / KWH field on front end (Dropdown menu for different states?)
-    //const costPerKWH = .1392;
     console.log("You will save approximately $" + (energy * costPerKWHs).toFixed(2) + " every year with this configuration.");
   
     // for the canvas
@@ -124,10 +122,7 @@ export function Create() {
     }
     xCoord = edgeSpacings + ((Math.floor(roofWidths - edgeSpacings*2 + (juristictionWidth - panelWidths)) / juristictionWidth - numPanelsWide) * juristictionWidth/2);
     yCoord = yCoord + juristictionHeight;
-  }
-
-  // Solar Panel Calculations
-  
+  }  
 
   useLayoutEffect( () => {
     //refrence current canvas
@@ -140,12 +135,6 @@ export function Create() {
     ctx.strokeRect(0,0,roofWidths,roofHeights); 
     ctx.fillStyle = "#dfe8f1";
     ctx.fillRect(0,0,roofWidths+1,roofHeights+1)
-
-    // Draw light blue square around USABLE building space 
-    /*var tempBuildWidth =  Math.floor(roofWidths - (edgeSpacings * 2));
-    var tempBuildHeight =  Math.floor(roofHeights - (edgeSpacings * 2));
-    ctx.fillStyle = "#dfe8f1";  //box inside the outer canvas or grid
-    ctx.fillRect(edgeSpacings, edgeSpacings, tempBuildWidth, tempBuildHeight);*/
   
     // draw the array
     for (let i = 0; i < numPanelsTall; i++) {
