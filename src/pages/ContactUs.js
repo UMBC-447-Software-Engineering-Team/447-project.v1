@@ -18,7 +18,26 @@ export default function Contact() {
     "Don’t feed the bats tonight.",
     "If you think last Tuesday was a drag, wait till you see what happens tomorrow!",
     "Cheese",
-    "Future looks spotty. You will spill soup in late evening."
+    "Future looks spotty. You will spill soup in late evening.",
+    "A closed mouth gathers no foot.",
+    "A day for firm decisions!!!!!  Or is it?",
+    "A rolling stone gathers momentum.",
+    "A rose by any other name would still have thorns.",
+    "It's earlier than you think.",
+    "Nobody expects the Spanish Inquisition!",
+    "You have been selected for a secret mission.",
+    "You're being followed.",
+    "You will be a winner today.",
+    "Stop that.",
+    "You might have mail.",
+    "Why worry about tomorrow, when today is so far off?",
+    "Warning: this fortune may change your life.",
+    "Toto, I've a feeling we're not in Kansas any more.",
+    "Today is yesterday's tomorrow.",
+    "This statement is a lie.",
+    "This fortune left blank intentionally.",
+    "This fortune is inoperative.  Please try another.",
+    "There's always one more bug."
   ];
       
   const [Fortune, setFortune] = useState(null);
