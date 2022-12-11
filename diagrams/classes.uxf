@@ -1,0 +1,139 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>0</x><y>630</y><w>570</w><h>870</h></coordinates><panel_attributes>*Panel*
+--
+-isUsable : bool
+-length : double
+-width : double
+-area : double
+-height : double
+-angle : double
+-panelSpaceVert : double
+-panelSpaceHoriz : double
+-panelJDVert : double
+-panelJDHoriz : double
+-TLV : double
+-TLH : double
+-TRV : double
+-TRH : double
+-BLV : double
+-BLH : double
+-BRV : double
+-BRH : double
+--
++Panel() : Panel
++Panel(l : double, w : double, h : double, a : double, spaceVer : double, spaceHoriz : double) : Panel
++getIsUsable() : bool
++setIsUsable(u : bool)
++double getLength() : double
++setLength(l : double)
++getWidth() : double
++setWidth(w : double)
++getArea() : double
++setArea(a : double)
++getHeight() : double
++setHeight(h : double)
++getAngle() : double
++setAngle(a : double)
++getPanelSpaceVert() : double
++setPanelSpaceVert(v : double)
++getPanelSpaceHoriz() : double
++setPanelSpaceHoriz(h : double)
++getPanelJDVert() : double
++setPanelJDVert(v : double)
++getPanelJDHoriz() : double
++setPanelJDHoriz(h : double)
++getTLV() : double
++setTLV(x : double)
++getTLH() : double
++setTLH(x : double)
++getTRV() : double
++setTRV(x : double)
++getTRH() : double
++setTRH(x : double)
++getBLV() : double
++ setBLV(x : double)
++getBLH() : double
++setBLH(x : double)
++getBRV() : double
++setBRV(x : double)
++getBRH() : double
++setBRH(x : double)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>0</y><w>490</w><h>560</h></coordinates><panel_attributes>*Building*
+--
+-length : double
+-width : double
+-area : double
+-height : double
+-angle : double
+-numVert : int
+-numHoriz : int
+-azimuth : double
+-offsetCoordinateVert : double
+-offsetCoordinateHoriz : double
+-panelArray : Panel**
+--
++Building(Panel p) : Building
++Building(l : double, w : double, h  : double, a : double, az: double, p : Panel) : Building
++initializeBuilding(p : Panel)
++isScuffed(p : Panel, k : Keepout) : bool
++printPanels(k : Keepout)
++getLength() : double
++setLength(l : double)
++getWidth() : double
++setWidth(double w)
++getArea() : double
++setArea(a  : double)
++getHeight() : double
++setHeight(h : double)
++getAngle() : double
++setAngle(a : double)
++getNumVert() : int
++void setNumVert(v : int)
++getNumHoriz() : int
++setNumHoriz(h : int)
++getOffsetCoordinateVert() : double
++setOffsetCoordinateVert(v : double)
++getOffsetCoordinateHoriz() : double
++setOffsetCoordinateHoriz(h : double)
++getPanelArray() : Panel**</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>620</x><y>630</y><w>390</w><h>620</h></coordinates><panel_attributes>*Keepouts*
+--
+-height : double
+-area : double
+-coordVert : double
+-coordHoriz : double
+-TLV : double
+-TLH : double
+-TRV : double
+-TRH : double
+-BLV : double
+-BLH : double
+-BRV : double
+-BRH : double
+--
++Keepout() : Keepout
++Keepout(a : double, h : double, cv : double, ch : double) : Keepout
++getArea() : double
++setArea(a : double)
++getHeight() : double
++setHeight(h : double)
++getCoordVert() : double
++setCoordVert(v : double)
++getCoordHoriz() : double
++setCoordHoriz(h : double)
++getTLV() : double
++setTLV(x : double)
++getTLH() : double
++setTLH(x : double)
++getTRV() : double
++setTRV(x : double)
++getTRH() : double
++setTRH(x : double)
++getBLV() : double
++setBLV(x : double
++getBLH() : double
++setBLH(x : double)
++getBRV() : double
++setBRV(x : double)
++getBRH() : double
++setBRH(x : double)
++shade() : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>550</y><w>400</w><h>100</h></coordinates><panel_attributes>m1=1
+m2=0..n</panel_attributes><additional_attributes>370;10;370;50;10;50;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>550</y><w>270</w><h>100</h></coordinates><panel_attributes>m1=1
+m2=0..n</panel_attributes><additional_attributes>10;10;10;50;230;50;230;80</additional_attributes></element></diagram>
