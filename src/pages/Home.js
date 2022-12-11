@@ -8,7 +8,7 @@ export default function Home() {
             <div className="flexrowOne">
                 <img className="home-images" src={require('../media/solar1.jpg')} alt="" height="30%" width="30%"/>
                 <div className="headText">
-                    <h1 className="headTextHeading">Welcome to EZWatts!</h1>
+                    <h1 className="headTextHeading">Welcome to EzWatts!</h1>
                         <a className="createbutton" href="./create/Create">Click to Begin</a>
                 </div>
                 <img className="home-images" src={require('../media/solar2.jpg')} alt="" height="30%" width="30%"/>
@@ -19,7 +19,7 @@ export default function Home() {
                 <img className="home-images" src={require('../media/solar3.jpg')} alt="" height="30%" width="30%"/>
                 <div className="middleText">
                 <p className="main-description">
-                    Here at EZWatts we believe that a person should be
+                    Here at EzWatts we believe that a person should be
                     able to have ease of access when implementing
                     solar panels for one's house.  Whether it is a company
                     or an individual, with our program you can set an outline
