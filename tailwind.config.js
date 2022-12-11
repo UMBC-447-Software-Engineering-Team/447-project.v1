@@ -3,8 +3,18 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  theme: {
-    extend: {},
+  daisyui:{
+    theme: [
+      {
+        mytheme: {
+          primary: "#2c5dff",
+         
+        },
+      }
+      
+    ]
+     
   },
+  
   plugins: [require("daisyui")],
 }

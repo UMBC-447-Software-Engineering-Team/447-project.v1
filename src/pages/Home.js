@@ -9,7 +9,7 @@ export default function Home() {
                 <img className="home-images" src={require('../media/solar1.jpg')} alt="" height="25%" width="25%"/>
                 <div className="headText">
                     <h1 className="headTextHeading">Welcome to EzWatts!</h1>
-                        <a className="createbutton" href="./create/Create">Click to Begin</a>
+                        <a className="btn btn-active bg-[#2c5dff]" href="./create/Create">Click to Begin</a>
                 </div>
                 <img className="home-images" src={require('../media/solar2.jpg')} alt="" height="25%" width="25%"/>
 
