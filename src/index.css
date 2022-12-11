@@ -5,14 +5,12 @@ html{
   background-color: #fefbef !important;
 }
 body {
-
   margin: 0;
   height: 100%;
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: large;
- 
-
+  color: black;
 }
 
 #cookie{
@@ -216,6 +214,7 @@ cursor: pointer;
 /* contacts Page */
 .contacts{
  margin-top: 5%;
+ margin-left: 22.5%;
  text-align: center;
 }
 

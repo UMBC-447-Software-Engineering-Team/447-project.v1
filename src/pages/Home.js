@@ -6,17 +6,17 @@ export default function Home() {
         <div className="main-home"> 
         {/* right images row */}
             <div className="flexrowOne">
-                <img className="home-images" src={require('../media/solar1.jpg')} alt="" height="30%" width="30%"/>
+                <img className="home-images" src={require('../media/solar1.jpg')} alt="" height="25%" width="25%"/>
                 <div className="headText">
                     <h1 className="headTextHeading">Welcome to EzWatts!</h1>
                         <a className="createbutton" href="./create/Create">Click to Begin</a>
                 </div>
-                <img className="home-images" src={require('../media/solar2.jpg')} alt="" height="30%" width="30%"/>
+                <img className="home-images" src={require('../media/solar2.jpg')} alt="" height="25%" width="25%"/>
 
             </div>
         {/* left images row */}
             <div className="flexrowTwo">
-                <img className="home-images" src={require('../media/solar3.jpg')} alt="" height="30%" width="30%"/>
+                <img className="home-images" src={require('../media/solar3.jpg')} alt="" height="25%" width="25%"/>
                 <div className="middleText">
                 <p className="main-description">
                     Here at EzWatts we believe that a person should be
@@ -28,7 +28,7 @@ export default function Home() {
                     of solar panels.
                 </p>
                 </div>
-                <img className="home-images" src={require('../media/solar4.jpg')} alt="" height="30%" width="30%"/>
+                <img className="home-images" src={require('../media/solar4.jpg')} alt="" height="25%" width="25%"/>
             </div>
             </div>
     )
