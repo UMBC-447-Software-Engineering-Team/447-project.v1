@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        EzWatts
+      <img class="navbarIcon" src="./favicon.ico"></img><i>EzWatts</i>
       </Link>
       <ul>
         <CustomLink to="create/Create">Create</CustomLink>

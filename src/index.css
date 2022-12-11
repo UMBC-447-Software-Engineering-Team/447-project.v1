@@ -84,7 +84,7 @@ form{
 
 .nav {
   font-size: xx-large;
-  background: #4677C7;
+  background: #2c5dff;
   /* background-color: #333; */
   color: white;
   border-color:  black;
@@ -119,13 +119,17 @@ form{
 }
 
 .nav li.active {
-  background-color:#4677C7;
+  background-color:#002383;
 }
 
 .nav li:hover {
   background-color: rgb(74, 66, 190);
 }
 
+.navbarIcon{
+  width: 6.25%;
+  height: 6.25%;
+}
 
 /* home page styling */
 .main-home{
@@ -149,11 +153,13 @@ form{
 }
 .headTextHeading{
   margin-bottom: 5%;
+  font-size: 272.5%;
 }
 .middleText{
   width: 35%;
   margin-left: 5%;
   margin-right: 5%;
+  font-size: larger;
 }
 
 .flexrowOne{
@@ -181,7 +187,7 @@ form{
 /* border for images  */
 .home-images{
   border-radius: 5%;
-  border: black solid 2px;
+  border: black solid 1px;
   float: left;
   object-fit: cover;
   aspect-ratio: 1 / 1;
@@ -190,13 +196,14 @@ form{
 /* buttons in home */
 .createbutton{
   padding: 2% 4%;
-  background-color: rgba(0, 164, 209, .7);
-  border-radius: 5%;
-  border: black solid 1.5px;
+  background-color: rgba(4, 205, 255, 0.7);
+  border-radius: 2.5%;
+  border: black solid 1px;
   text-align: center;
   color: black;
   transition-duration: 0.5s;
-  text-decoration:none
+  text-decoration:none;
+  font-size: xx-large;
 }
 
 .createbutton:hover,
