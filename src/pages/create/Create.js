@@ -31,13 +31,15 @@ export function Create() {
     roofHeight, rowSpacing, columnSpacing, edgeSpacing, watt, avgRad, costPerKWH) {
 
       // copy over the newly changed inputs using + to convert from string to number
-      panelWidth *= 25;
-      panelHeight *= 25;
-      roofWidth *= 25;
-      roofHeight *= 25;
-      rowSpacing *= 25;
-      columnSpacing *= 25;
-      edgeSpacing *= 25;
+      const ratio = 1000/Math.max(roofWidth, roofHeight);
+      panelWidth *= ratio;
+      panelHeight *= ratio;
+      roofWidth *= ratio;
+      roofHeight *= ratio;
+      rowSpacing *= ratio;
+      columnSpacing *= ratio;
+      edgeSpacing *= ratio;
+
       const roofWidths = +roofWidth;
       setRoofWidths(roofWidths);
 
