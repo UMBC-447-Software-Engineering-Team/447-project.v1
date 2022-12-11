@@ -67,7 +67,7 @@ export default function Form({ onSubmit }) {
     }
 
     if (+roofHeight <= 0){
-      setInputError3('Enter a value greater than 1');
+      setInputError3('Enter a value greater than 0');
       value = true;
     }if (+roofHeight <= +panelWidth){
         setInputError3('Roof height cannot be less than panel width');
@@ -90,8 +90,8 @@ export default function Form({ onSubmit }) {
       setInputError5('Column spacing cannot be greater than roof width');
       value = true;
     }
-    if (+columnSpacing < 0){
-      setInputError6('Enter a value greater than 0');
+    if (+edgeSpacing < 0){
+      setInputError6('Enter a value greater than or equal to 0');
       value = true;
     } 
     if(+watts < 0){
@@ -141,7 +141,7 @@ export default function Form({ onSubmit }) {
     <form onSubmit={handleSubmit} >
     <div className="col-md-6">
     <label>
-    <span className="label-text">Panel Width:</span>
+    <span className="label-text">Panel Width (m):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number"  type="number" value={panelWidth} required 
           onChange={event => setPanelWidth(event.target.value)} 
         />
@@ -155,7 +155,7 @@ export default function Form({ onSubmit }) {
 
         <div className="col-md-6">
         <label>
-        <span className="label-text">Panel Height:</span>
+        <span className="label-text">Panel Height (m):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={panelHeight} required 
           onChange={event => setPanelHeight(event.target.value)} />
           {inputError1 && (
@@ -168,7 +168,7 @@ export default function Form({ onSubmit }) {
 
         <div className="col-md-6">
         <label>
-        <span className="label-text">Roof Width:</span>
+        <span className="label-text">Roof Width (m):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofWidth} required 
           onChange={event => setRoofWidth(event.target.value)} />
           {inputError2 && (
@@ -181,7 +181,7 @@ export default function Form({ onSubmit }) {
        
         <div className="col-md-6">
         <label >
-        <span className="label-text">Roof Height:</span>
+        <span className="label-text">Roof Height (m):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofHeight} required 
           onChange={event => setRoofHeight(event.target.value)} />
           {inputError3 && (
@@ -194,7 +194,7 @@ export default function Form({ onSubmit }) {
         
         <div className="col-md-6">
         <label >
-        <span className="label-text">Row Spacing:</span>
+        <span className="label-text">Row Spacing (m):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={rowSpacing} 
           onChange={event => setRowSpacing(event.target.value)} />
           {inputError4 && (
@@ -207,7 +207,7 @@ export default function Form({ onSubmit }) {
 
         <div className="col-md-6">
         <label>
-        <span className="label-text">Column Spacing:</span>
+        <span className="label-text">Column Spacing (m):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={columnSpacing} 
           onChange={event => setColumnSpacing(event.target.value)} />
           {inputError5 && (
@@ -220,7 +220,7 @@ export default function Form({ onSubmit }) {
        
         <div className="col-md-6">
         <label >
-        <span className="label-text">Edge Spacing:</span>
+        <span className="label-text">Edge Spacing (m):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={edgeSpacing} onChange={event => setEdgeSpacing(event.target.value)} />
           {inputError6 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
@@ -244,7 +244,7 @@ export default function Form({ onSubmit }) {
 
         <div className="col-md-6">
         <label >
-        <span className="label-text">Average Yearly Radiance:</span>
+        <span className="label-text">Avg Yearly Radiance (kWh/m^2):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={avgRads} onChange={event => setAvgRads(event.target.value)} />
           {inputError8 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
@@ -256,7 +256,7 @@ export default function Form({ onSubmit }) {
 
         <div className="col-md-6">
         <label >
-        <span className="label-text">Cost Per KWH:</span>
+        <span className="label-text">Cost Per KWH ($):</span>
           <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={costPerKWH} onChange={event => setcostPerKWH(event.target.value)} />
           {inputError9 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
