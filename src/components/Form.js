@@ -30,6 +30,7 @@ export default function Form({ onSubmit }) {
 
 
   // Only update all numbers when the submit button is done
+  //works with enter key as well as clicking submit
   function handleSubmit(event) {
     event.preventDefault();
     let value = false;  //handling the full form input
@@ -221,7 +222,8 @@ export default function Form({ onSubmit }) {
         <div className="col-md-6">
         <label >
         <span className="label-text">Edge Spacing:</span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={edgeSpacing} onChange={event => setEdgeSpacing(event.target.value)} />
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={edgeSpacing} 
+          onChange={event => setEdgeSpacing(event.target.value)} />
           {inputError6 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
             {inputError6}
@@ -233,7 +235,8 @@ export default function Form({ onSubmit }) {
         <div className="col-md-6">
         <label >
         <span className="label-text">Panel Wattage:</span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={watts} onChange={event => setWattage(event.target.value)} />
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={watts} 
+          onChange={event => setWattage(event.target.value)} />
           {inputError7 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
             {inputError7}
@@ -245,7 +248,8 @@ export default function Form({ onSubmit }) {
         <div className="col-md-6">
         <label >
         <span className="label-text">Average Yearly Radiance:</span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={avgRads} onChange={event => setAvgRads(event.target.value)} />
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={avgRads} 
+          onChange={event => setAvgRads(event.target.value)} />
           {inputError8 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
             {inputError8}
@@ -257,7 +261,8 @@ export default function Form({ onSubmit }) {
         <div className="col-md-6">
         <label >
         <span className="label-text">Cost Per KWH:</span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={costPerKWH} onChange={event => setcostPerKWH(event.target.value)} />
+          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={costPerKWH} 
+          onChange={event => setcostPerKWH(event.target.value)} />
           {inputError9 && (
           <div style={{ color: 'red', fontSize: '0.8em' }}>
             {inputError9}

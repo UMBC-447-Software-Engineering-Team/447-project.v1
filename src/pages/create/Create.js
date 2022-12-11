@@ -91,20 +91,20 @@ export function Create() {
     setArray(newArray);
     // Deallocate the old array
     newArray = null;
-     //Need to add in a Watts and Average Rads field on front end (Dropdown menu for different states?)
+   
+  }
+    //Need to add in a Watts and Average Rads field on front end (Dropdown menu for different states?)
     //const watts = 450, avgRads = 1814.05; // Hardcoded for now
     const totalPanels = numPanelsTall * numPanelsWide;
     const panelArea = panelHeights * panelWidths;
     const totalPanelArea = totalPanels * panelArea;
     const solarYield = (watts/1000) / panelArea; //in KWH
     const energy = avgRads * solarYield * totalPanelArea * .75; //.75 Accounts for all inhibiting variables
-    console.log("You will generate approximately " + energy.toFixed(0) + " KWH of energy every year with this configuration.");
-     //Need to add in a Cost / KWH field on front end (Dropdown menu for different states?)
+    //Need to add in a Cost / KWH field on front end (Dropdown menu for different states?)
     //const costPerKWH = .1392;
-    console.log("You will save approximately $" + (energy * costPerKWH).toFixed(2) + " every year with this configuration.");
-  }
-
-  // for the canvas
+    console.log("You will save approximately $" + (energy * costPerKWHs).toFixed(2) + " every year with this configuration.");
+  
+    // for the canvas
   const canvasRef = useRef(null);
 
   // add coordinanted for each array
@@ -162,6 +162,18 @@ export function Create() {
       <div className="main">
       <div className="Left">
           <Form onSubmit={handleSubmit} />
+          <div>
+            <label >
+            <span className="label-text">You will generate approximately: {energy.toFixed(0)}KWH of energy every year with this configuration.</span>
+            </label>
+            </div>
+            <div>
+            <label >
+            <span className="label-text">You will save approximately ${(energy * costPerKWHs).toFixed(2)} every year with this configuration.</span>
+            </label>
+            </div>
+          
+          
       </div>
       <div className="Right">
       <canvas ref={canvasRef} width= {canvasWidth} height={canvasHeight} />
