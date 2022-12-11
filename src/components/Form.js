@@ -139,139 +139,162 @@ export default function Form({ onSubmit }) {
 
   return (
     <>
+   
     <form onSubmit={handleSubmit} >
+    <p id="instructions">Enter all relevant building and panel information below.</p>
+
     <div className="col-md-6">
-    <label>
-    <span className="label-text">Panel Width (m): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number"  type="number" value={panelWidth} required 
-          onChange={event => setPanelWidth(event.target.value)} 
-        />
-        {inputError && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError}
-          </div>
-          )}
-        </label>
-      </div>
-
-        <div className="col-md-6">
-        <label>
-        <span className="label-text">Panel Height (m): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={panelHeight} required 
-          onChange={event => setPanelHeight(event.target.value)} />
-          {inputError1 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError1}
-          </div>
-          )}
-            </label>
-        </div>
-
-        <div className="col-md-6">
-        <label>
+      <label>
         <span className="label-text">Roof Width (m): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofWidth} required 
-          onChange={event => setRoofWidth(event.target.value)} />
-          {inputError2 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError2}
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofWidth} required 
+                onChange={event => setRoofWidth(event.target.value)} />
+                {inputError2 && (
+                  <div style={{ color: 'red', fontSize: '0.8em' }}>
+                    {inputError2}
+                  </div>
+                )}
           </div>
-          )}
-        </label>
-        </div>
-       
-        <div className="col-md-6">
-        <label >
+      </label>
+    </div>
+    
+    <div className="col-md-6">
+      <label >
         <span className="label-text">Roof Height (m): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofHeight} required 
-          onChange={event => setRoofHeight(event.target.value)} />
-          {inputError3 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError3}
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={roofHeight} required 
+                onChange={event => setRoofHeight(event.target.value)} />
+                {inputError3 && (
+                  <div style={{ color: 'red', fontSize: '0.8em' }}>
+                    {inputError3}
+                  </div>
+                )}
           </div>
-          )}
-        </label>
-        </div>
-        
-        <div className="col-md-6">
-        <label >
+      </label>
+    </div>
+    
+    <div className="col-md-6">
+      <label>
+        <span className="label-text">Panel Width (m): </span>
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number"  type="number" value={panelWidth} required 
+                onChange={event => setPanelWidth(event.target.value)} 
+                />
+                {inputError && (
+                  <div style={{ color: 'red', fontSize: '0.8em' }}>
+                    {inputError}
+                  </div>
+                )}
+          </div>
+      </label>
+    </div>
+
+    <div className="col-md-6">
+      <label>
+        <span className="label-text">Panel Height (m): </span>
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={panelHeight} required 
+                onChange={event => setPanelHeight(event.target.value)} />
+                {inputError1 && (
+                  <div style={{ color: 'red', fontSize: '0.8em' }}>
+                    {inputError1}
+                  </div>
+                )}
+          </div>
+      </label>
+    </div>
+    
+    <div className="col-md-6">
+      <label >
         <span className="label-text">Row Spacing (m): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={rowSpacing} 
-          onChange={event => setRowSpacing(event.target.value)} />
-          {inputError4 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError4}
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={rowSpacing} 
+                onChange={event => setRowSpacing(event.target.value)} />
+                {inputError4 && (
+                  <div style={{ color: 'red', fontSize: '0.8em' }}>
+                    {inputError4}
+                  </div>
+                )}
           </div>
-          )}
-        </label>
-        </div>
+      </label>
+    </div>
 
-        <div className="col-md-6">
-        <label>
+    <div className="col-md-6">
+      <label>
         <span className="label-text">Column Spacing (m): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={columnSpacing} 
-          onChange={event => setColumnSpacing(event.target.value)} />
-          {inputError5 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError5}
-          </div>
-          )}
-        </label>
-        </div>
-       
-        <div className="col-md-6">
-        <label >
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={columnSpacing} 
+                onChange={event => setColumnSpacing(event.target.value)} />
+                {inputError5 && (
+                  <div style={{ color: 'red', fontSize: '0.8em' }}>
+                    {inputError5}
+                  </div>
+                )}
+          </div> 
+      </label>
+    </div>
+    
+    <div className="col-md-6">
+      <label >
         <span className="label-text">Edge Spacing (m): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={edgeSpacing} 
-          onChange={event => setEdgeSpacing(event.target.value)} />
-          {inputError6 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError6}
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={edgeSpacing} 
+                onChange={event => setEdgeSpacing(event.target.value)} />
+                {inputError6 && (
+                  <div style={{ color: 'red', fontSize: '0.8em' }}>
+                    {inputError6}
+                  </div>
+                )}
           </div>
-          )}
-        </label>
-        </div>
+      </label>
+    </div>
 
-        <div className="col-md-6">
-        <label >
+    <div className="col-md-6">
+      <label >
         <span className="label-text">Panel Wattage: </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={watts} 
-          onChange={event => setWattage(event.target.value)} />
-          {inputError7 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError7}
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={watts} 
+                  onChange={event => setWattage(event.target.value)} />
+                  {inputError7 && (
+                    <div style={{ color: 'red', fontSize: '0.8em' }}>
+                      {inputError7}
+                    </div>
+                  )}
           </div>
-          )}
-        </label>
-        </div>
+      </label>
+    </div>
 
-        <div className="col-md-6">
-        <label >
+    <div className="col-md-6">
+      <label >
         <span className="label-text">Avg Yearly Radiance (kWh/m^2): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={avgRads} 
-          onChange={event => setAvgRads(event.target.value)} />
-          {inputError8 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError8}
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={avgRads} 
+                  onChange={event => setAvgRads(event.target.value)} />
+                  {inputError8 && (
+                    <div style={{ color: 'red', fontSize: '0.8em' }}>
+                      {inputError8}
+                    </div>
+                  )}
           </div>
-          )}
-        </label>
-        </div>
+      </label>
+    </div>
 
-        <div className="col-md-6">
-        <label >
+    <div className="col-md-6">
+      <label >
         <span className="label-text">Cost Per KWH ($): </span>
-          <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={costPerKWH} 
-          onChange={event => setcostPerKWH(event.target.value)} />
-          {inputError9 && (
-          <div style={{ color: 'red', fontSize: '0.8em' }}>
-            {inputError9}
+          <div>
+            <input className="input input-bordered input-sm w-full max-w-xs" placeholder="Enter Number" type="number" value={costPerKWH} 
+                  onChange={event => setcostPerKWH(event.target.value)} />
+                  {inputError9 && (
+                    <div style={{ color: 'red', fontSize: '0.8em' }}>
+                      {inputError9}
+                    </div>
+                  )}
           </div>
-          )}
-        </label>
-        </div>
+      </label>
+    </div>
 
-      <button className="btn btn-active" type="submit">Submit</button>
+      <button className="btn btn-wide btn-active bg-[#2c5dff]" type="submit">Submit</button>
     </form>
     
     </>

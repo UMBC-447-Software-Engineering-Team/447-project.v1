@@ -52,22 +52,22 @@ export default function Contact() {
     <p>Tanner</p>
     <p>Zoe</p>
     <button class="fc spawned" type="button" onClick={generateFortune}>
-	<div class="fc-part left"></div>
-	<div class="fc-part right"></div>
-	<div class="fc-crumbs">
-		<div class="fc-crumb"></div>
-		<div class="fc-crumb"></div>
-		<div class="fc-crumb"></div>
-		<div class="fc-crumb"></div>
-		<div class="fc-crumb"></div>
-		<div class="fc-crumb"></div>
-		<div class="fc-crumb"></div>
-		<div class="fc-crumb"></div>
-	</div>
-	<div class="fc-fortune">
-		<p class="fc-fortune-text">no</p>
-		<p class="fc-lucky-numbers">Lucky Numbers <span>?, ?, ?, ?, ?, ?</span></p>
-	</div>
+      <div class="fc-part left"></div>
+      <div class="fc-part right"></div>
+        <div class="fc-crumbs">
+            <div class="fc-crumb"></div>
+            <div class="fc-crumb"></div>
+            <div class="fc-crumb"></div>
+            <div class="fc-crumb"></div>
+            <div class="fc-crumb"></div>
+            <div class="fc-crumb"></div>
+            <div class="fc-crumb"></div>
+            <div class="fc-crumb"></div>
+        </div>
+        <div class="fc-fortune">
+        <p class="fc-fortune-text">no</p>
+        <p class="fc-lucky-numbers">Lucky Numbers <span>?, ?, ?, ?, ?, ?</span></p>
+      </div>
 </button>
 
 
