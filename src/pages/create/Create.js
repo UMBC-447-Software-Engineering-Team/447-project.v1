@@ -5,8 +5,8 @@ import React, { useLayoutEffect, useState, useRef } from 'react';
 
 export function Create() {
   // Canvas Dimentions
-  let canvasWidth = 1000; //Max canvas dimentions
-  let canvasHeight = 1000; // Max canvas dimentions
+  let canvasWidth = 1000; //Max canvas dimensions
+  let canvasHeight = 1000; // Max canvas dimensions
   // Variables in order to access the submitted inputs outside of handleSubmit hook
   const [panelWidths, setPanelWidths] = useState(0);
   const [panelHeights, setPanelHeights] = useState(0);
