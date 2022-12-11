@@ -19,7 +19,7 @@ export default function Home() {
                 <img className="home-images" src={require('../media/solar3.jpg')} alt="" height="25%" width="25%"/>
                 <div className="middleText">
                 <p className="main-description">
-                    Here at EzWatts we believe that a person should be
+                    Here at EzWatts, we believe that a person should be
                     able to have ease of access when implementing
                     solar panels for one's house.  Whether it is a company
                     or an individual, with our program you can set an outline
