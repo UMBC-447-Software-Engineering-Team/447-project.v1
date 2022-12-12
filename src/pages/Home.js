@@ -23,9 +23,8 @@ export default function Home() {
                     able to have ease of access when implementing
                     solar panels for one's house.  Whether it is a company
                     or an individual, with our program you can set an outline
-                    of your roof, point out your obstructions, and get an accurate
-                    representation and price for the placement and installation 
-                    of solar panels.
+                    of your roof, point out your obstructions, and get an estimation
+                    for how much electricity you can generate for your house.
                 </p>
                 </div>
                 <img className="home-images" src={require('../media/solar4.jpg')} alt="" height="25%" width="25%"/>
