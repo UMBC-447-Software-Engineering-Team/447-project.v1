@@ -167,7 +167,7 @@ export function Create() {
           <div>
             <form>
               <div>
-                <span >You will generate approximately: {energy.toFixed(0)}KWH of energy every year with this configuration.</span>
+                <span >You will generate approximately: {energy.toFixed(0)} KWH of energy every year with this configuration.</span>
               </div>
               
               <div>
