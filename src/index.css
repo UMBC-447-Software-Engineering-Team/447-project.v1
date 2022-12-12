@@ -81,7 +81,8 @@ form{
 .Left{
   align-self: flex-start;
   flex-grow: 1;
-  
+  height: 875px;
+  overflow-y: scroll;
 }
 
 .nav {
