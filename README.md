@@ -3,12 +3,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-To get started run.\
+To get started run.
 
-### 'npm install -D tailwindcss postcss autoprefixer'
-### 'npx tailwindcss init -p'
-### 'npm i daisyui' 
-### 'npm i'
+### `npm install -D tailwindcss postcss autoprefixer`
+### `npx tailwindcss init -p`
+### `npm i daisyui`
+### `npm i`
 In the project directory, you can run:
 
 ### `npm start`
