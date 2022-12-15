@@ -9,6 +9,14 @@ To get started run.
 ### `npx tailwindcss init -p`
 ### `npm i daisyui`
 ### `npm i`
+
+If tailwind.config.js is not pulled with the repo already then run
+### `npm install -D tailwindcss postcss autoprefixer`
+### `npx tailwindcss init -p`
+and then add
+### [require("daisyui")] 
+to the plugins portion of the config file
+
 In the project directory, you can run:
 
 ### `npm start`
