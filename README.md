@@ -6,7 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 To get started run.
 
 ### `npm install -D tailwindcss postcss autoprefixer`
-### `npx tailwindcss init -p`
 ### `npm i daisyui`
 ### `npm i`
 
